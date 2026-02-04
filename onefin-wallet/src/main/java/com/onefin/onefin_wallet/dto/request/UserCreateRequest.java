@@ -1,16 +1,18 @@
 package com.onefin.onefin_wallet.dto.request;
 
-import lombok.AccessLevel;
+import com.onefin.onefin_wallet.entity.BaseEntity;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.experimental.FieldDefaults;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
-@Builder
-@FieldDefaults(level = AccessLevel.PRIVATE)
-public class UserCreateRequest {
+@NoArgsConstructor
+@SuperBuilder
+public class UserCreateRequest extends BaseEntity {
     String username;
     String password;
     String email;
