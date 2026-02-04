@@ -1,0 +1,30 @@
+package com.onefin.onefin_wallet.entity;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.SuperBuilder;
+
+import java.time.LocalDateTime;
+
+@MappedSuperclass
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@SuperBuilder
+public class BaseEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    String id;
+    LocalDateTime createTime = LocalDateTime.now();
+    LocalDateTime updateTime = LocalDateTime.now();
+    boolean active = true;
+
+    @PreUpdate
+    public void preUpdate() {
+        this.updateTime = LocalDateTime.now();
+    }
+}
