@@ -3,7 +3,7 @@ package com.onefin.onefin_wallet.controller;
 import com.onefin.onefin_wallet.dto.request.UserCreateRequest;
 import com.onefin.onefin_wallet.dto.response.ApiResponse;
 import com.onefin.onefin_wallet.dto.response.UserCreateResponse;
-import com.onefin.onefin_wallet.entity.User;
+import com.onefin.onefin_wallet.entity.user.User;
 import com.onefin.onefin_wallet.service.UserService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package com.onefin.onefin_wallet.entity;
+package com.onefin.onefin_wallet.entity.base;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -10,11 +10,11 @@ import lombok.experimental.SuperBuilder;
 import java.time.LocalDateTime;
 
 @MappedSuperclass
+@SuperBuilder
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@SuperBuilder
 public class BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
