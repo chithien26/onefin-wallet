@@ -3,6 +3,7 @@ package com.onefin.onefin_wallet.controller;
 import com.onefin.onefin_wallet.dto.request.UserCreateRequest;
 import com.onefin.onefin_wallet.dto.response.ApiResponse;
 import com.onefin.onefin_wallet.dto.response.UserCreateResponse;
+import com.onefin.onefin_wallet.entity.User;
 import com.onefin.onefin_wallet.service.UserService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +24,7 @@ public class UserController {
     }
 
     @GetMapping("/user")
-    public ApiResponse<UserCreateResponse> getUserByEmail(@RequestParam String email) {
+    public ApiResponse<User> getUserByEmail(@RequestParam String email) {
         return new ApiResponse<>(200, "Success", userService.findByEmail(email));
     }
 

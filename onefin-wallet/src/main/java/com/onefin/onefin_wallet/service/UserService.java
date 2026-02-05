@@ -29,9 +29,18 @@ public class UserService {
                 .toList();
     }
 
-    public UserCreateResponse findByEmail(String email) {
-        return userMapper.toUserCreateResponse(userRepository.findByEmail(email));
+    public User findByUsername(String username) {
+        return userRepository.findByUsername(username);
     }
+
+    public User findByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+
+    public boolean existsByUsername(String username) {
+        return userRepository.existsByUsername(username);
+    }
+
 
     public UserCreateResponse createUser(UserCreateRequest userCreateRequest) {
         User user = userMapper.toUser(userCreateRequest);

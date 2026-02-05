@@ -5,7 +5,8 @@ import lombok.Getter;
 @Getter
 public enum ErrorCode {
     INVALID_AGE(100, "Age must be between 18 and 65"),
-    DUPLICATE_USERNAME(101, "Username already exists");
+    DUPLICATE_USERNAME(101, "Username already exists"),
+    USER_NOT_FOUND(101, "User not found");
 
 
     private final int code;
