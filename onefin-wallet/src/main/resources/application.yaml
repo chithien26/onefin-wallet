@@ -12,3 +12,6 @@ spring:
     properties:
       hibernate:
         format_sql: true
+#  jwt:
+#    signerKey: "e331a78798d631d65151bcb13bde7180dcfe38ffc570e9d6c8fdef8641147ab8"
+#    valid-duration: 3600
