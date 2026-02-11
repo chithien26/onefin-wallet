@@ -23,11 +23,13 @@ import java.math.BigDecimal;
 public class Transaction extends BaseEntity {
     String code;
     String description;
+    String fromWallet;
+    String toWallet;
     BigDecimal amount;
 
     @Enumerated(EnumType.STRING)
     TransactionStatus status;
-    
+
     @PrePersist
     public void generateCode() {
         this.code = "TXN-" + System.currentTimeMillis();
