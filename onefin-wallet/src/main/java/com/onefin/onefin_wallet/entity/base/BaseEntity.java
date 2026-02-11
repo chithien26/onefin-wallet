@@ -19,9 +19,16 @@ public class BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     String id;
-    LocalDateTime createTime = LocalDateTime.now();
-    LocalDateTime updateTime = LocalDateTime.now();
-    boolean active = true;
+    LocalDateTime createTime;
+    LocalDateTime updateTime;
+    boolean active;
+
+    @PrePersist
+    public void PrePersist() {
+        this.createTime = LocalDateTime.now();
+        this.updateTime = LocalDateTime.now();
+        active = true;
+    }
 
     @PreUpdate
     public void preUpdate() {

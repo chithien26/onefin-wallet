@@ -1,0 +1,9 @@
+package com.onefin.onefin_wallet.reposotory;
+
+import com.onefin.onefin_wallet.entity.wallet.MainWallet;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface MainWalletRepository extends JpaRepository<MainWallet, String> {
+}

@@ -15,7 +15,10 @@ import lombok.experimental.SuperBuilder;
 public class UserCreateRequest extends BaseEntity {
     String username;
     String password;
+    String fullName;
     String email;
     String phone;
     String address;
+    //@not null
+    String defaultWalletNumber;
 }
