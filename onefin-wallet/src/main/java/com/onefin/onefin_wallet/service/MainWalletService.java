@@ -39,12 +39,22 @@ public class MainWalletService {
     }
 
     public void debit(String mainWalletNumber, BigDecimal amount) {
+        if (!mainWalletRepository.existsByWalletNumber(mainWalletNumber)) {
+            throw new RuntimeException("Wallet number does not exist");
+        }
+
         MainWallet wallet = mainWalletRepository.findByWalletNumber(mainWalletNumber);
+        if (wallet.getBalance().compareTo(amount) < 0) {
+            throw new RuntimeException("Insufficient balance");
+        }
         wallet.setBalance(wallet.getBalance().subtract(amount));
         mainWalletRepository.save(wallet);
     }
 
     public void credit(String mainWalletNumber, BigDecimal amount) {
+        if (!mainWalletRepository.existsByWalletNumber(mainWalletNumber)) {
+            throw new RuntimeException("Wallet number does not exist");
+        }
         MainWallet wallet = mainWalletRepository.findByWalletNumber(mainWalletNumber);
         wallet.setBalance(wallet.getBalance().add(amount));
         mainWalletRepository.save(wallet);

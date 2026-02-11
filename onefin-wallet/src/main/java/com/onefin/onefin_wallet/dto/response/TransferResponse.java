@@ -3,6 +3,7 @@ package com.onefin.onefin_wallet.dto.response;
 import com.onefin.onefin_wallet.EnumApp.TransactionStatus;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,6 +13,7 @@ import java.time.LocalDateTime;
 
 @Setter
 @Getter
+@AllArgsConstructor
 @Builder
 public class TransferResponse {
     String code;

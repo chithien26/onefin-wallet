@@ -53,7 +53,7 @@ public class UserService {
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-        Account account = accountService.createAccount(user);
+        Account account = Account.builder().owner(user).build();
 
         MainWallet defaultmainWallet = mainWalletService.createMainWallet(
                 MainWalletCreateRequest.builder()
