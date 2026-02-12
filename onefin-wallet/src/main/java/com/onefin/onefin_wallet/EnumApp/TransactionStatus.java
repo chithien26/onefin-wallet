@@ -7,7 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum TransactionStatus {
     PENDING("Đang xử lý"),
-    COMPLETED("Thành công"),
+    SUCCESS("Thành công"),
     FAILED("Thất bại"),
     CANCELLED("Hủy bỏ");
     private final String description;
