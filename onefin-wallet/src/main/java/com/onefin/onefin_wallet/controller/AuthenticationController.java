@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthenticationController {
     AuthenticationService authenticationService;
 
-    @PostMapping
+    @PostMapping("/login")
     public ApiResponse<AuthenticationResponse> Authentication(@RequestBody AuthenticationRequest authenticationRequest) {
         AuthenticationResponse authenticationResponse = authenticationService.authenticate(authenticationRequest);
         return new ApiResponse<>(authenticationResponse.isResult() ? 200 : 201, authenticationResponse.isResult() ? "Success" : "Failed", authenticationResponse);

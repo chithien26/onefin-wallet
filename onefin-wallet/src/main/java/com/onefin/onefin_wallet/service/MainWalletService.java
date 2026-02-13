@@ -7,10 +7,11 @@ import com.onefin.onefin_wallet.dto.response.TransferResponse;
 import com.onefin.onefin_wallet.entity.Transaction;
 import com.onefin.onefin_wallet.entity.wallet.MainWallet;
 import com.onefin.onefin_wallet.reposotory.MainWalletRepository;
-import com.onefin.onefin_wallet.reposotory.TransactionRepository;
+import jakarta.persistence.LockModeType;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.data.jpa.repository.Lock;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,7 +23,7 @@ import java.math.BigDecimal;
 public class MainWalletService {
 
     MainWalletRepository mainWalletRepository;
-    TransactionRepository transactionRepository;
+    TransactionService transactionService;
 
     @Transactional
     public MainWallet createMainWallet(MainWalletCreateRequest mainWalletCreateRequest) {
@@ -60,6 +61,7 @@ public class MainWalletService {
         mainWalletRepository.save(wallet);
     }
 
+    @Lock(LockModeType.PESSIMISTIC_WRITE)
     @Transactional
     public TransferResponse transfer(TransferRequest transferRequest) {
 
@@ -73,15 +75,16 @@ public class MainWalletService {
                 .amount(transferRequest.getAmount())
                 .description(transferRequest.getDescription())
                 .build();
+        transactionService.log(transaction);
 
         try {
             debit(fromWallet, amount);
             credit(toWallet, amount);
             transaction.setStatus(TransactionStatus.SUCCESS);
-            transactionRepository.save(transaction);
+            transactionService.log(transaction);
         } catch (Exception e) {
             transaction.setStatus(TransactionStatus.FAILED);
-            transactionRepository.save(transaction);
+            transactionService.log(transaction);
             throw new RuntimeException("Transaction failed: " + e.getMessage());
         }
 
