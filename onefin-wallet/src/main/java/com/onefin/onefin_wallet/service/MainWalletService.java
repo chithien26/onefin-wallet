@@ -77,7 +77,7 @@ public class MainWalletService {
         try {
             debit(fromWallet, amount);
             credit(toWallet, amount);
-            transaction.setStatus(TransactionStatus.COMPLETED);
+            transaction.setStatus(TransactionStatus.SUCCESS);
             transactionRepository.save(transaction);
         } catch (Exception e) {
             transaction.setStatus(TransactionStatus.FAILED);

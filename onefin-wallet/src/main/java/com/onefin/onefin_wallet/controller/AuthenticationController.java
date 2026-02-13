@@ -3,7 +3,7 @@ package com.onefin.onefin_wallet.controller;
 import com.onefin.onefin_wallet.dto.request.AuthenticationRequest;
 import com.onefin.onefin_wallet.dto.response.ApiResponse;
 import com.onefin.onefin_wallet.dto.response.AuthenticationResponse;
-import com.onefin.onefin_wallet.service.AuthService;
+import com.onefin.onefin_wallet.service.AuthenticationService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @RequestMapping("/auth")
 public class AuthenticationController {
-    AuthService authenticationService;
+    AuthenticationService authenticationService;
 
     @PostMapping
     public ApiResponse<AuthenticationResponse> Authentication(@RequestBody AuthenticationRequest authenticationRequest) {
