@@ -1,6 +1,6 @@
 package com.onefin.onefin_wallet.service;
 
-import com.onefin.onefin_wallet.entity.Transaction;
+import com.onefin.onefin_wallet.entity.transaction.Transaction;
 import com.onefin.onefin_wallet.reposotory.TransactionRepository;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package com.onefin.onefin_wallet.entity;
+package com.onefin.onefin_wallet.entity.transaction;
 
 import com.onefin.onefin_wallet.EnumApp.TransactionStatus;
 import com.onefin.onefin_wallet.entity.base.BaseEntity;

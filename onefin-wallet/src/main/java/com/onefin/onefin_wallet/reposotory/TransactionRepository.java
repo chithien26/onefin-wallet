@@ -1,6 +1,6 @@
 package com.onefin.onefin_wallet.reposotory;
 
-import com.onefin.onefin_wallet.entity.Transaction;
+import com.onefin.onefin_wallet.entity.transaction.Transaction;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

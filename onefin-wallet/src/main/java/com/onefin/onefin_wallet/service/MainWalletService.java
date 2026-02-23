@@ -4,7 +4,7 @@ import com.onefin.onefin_wallet.EnumApp.TransactionStatus;
 import com.onefin.onefin_wallet.dto.request.MainWalletCreateRequest;
 import com.onefin.onefin_wallet.dto.request.TransferRequest;
 import com.onefin.onefin_wallet.dto.response.TransferResponse;
-import com.onefin.onefin_wallet.entity.Transaction;
+import com.onefin.onefin_wallet.entity.transaction.Transaction;
 import com.onefin.onefin_wallet.entity.wallet.MainWallet;
 import com.onefin.onefin_wallet.reposotory.MainWalletRepository;
 import jakarta.persistence.LockModeType;
